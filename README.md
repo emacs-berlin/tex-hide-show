@@ -1,4 +1,4 @@
-Tex Hide Show [![Build Status](https://travis-ci.org/emacs-berlin/tex-hide-show.svg?branch=master)](https://travis-ci.org/emacs-berlin/tex-hide-show)
+Tex Hide Show [![Build Status](https://travis-ci.org/emacs-berlin/tex-hide.svg?branch=master)](https://travis-ci.org/emacs-berlin/tex-hide)
 
 # tex-hide-show.el
 

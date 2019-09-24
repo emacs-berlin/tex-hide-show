@@ -32,7 +32,7 @@ fi
 
 echo "\$EMACS: $EMACS"
 
-FILE1=tex-hide.el
+FILE1=tex-hide-show.el
 
 
 TEST1=test/tex-hide-setup-ert-tests.el

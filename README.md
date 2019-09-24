@@ -1,4 +1,6 @@
-# tex-hide.el
+Tex Hide Show [![Build Status](https://travis-ci.org/emacs-berlin/tex-hide-show.svg?branch=master)](https://travis-ci.org/emacs-berlin/tex-hide-show)
+
+# tex-hide-show.el
 
 Hide LaTeX section, subsection etc. in a way Emacs org-mode does WRT title and subtitle.
 

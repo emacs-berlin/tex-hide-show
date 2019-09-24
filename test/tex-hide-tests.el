@@ -25,6 +25,7 @@
 ;;; Code:
 
 (require 'tex-hide-setup-ert-tests)
+(require 'tex-hide-show)
 
 (defvar tex-hide-debug-p nil
   "Avoid error")

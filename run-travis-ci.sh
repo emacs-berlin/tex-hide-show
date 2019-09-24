@@ -36,7 +36,7 @@ FILE1=tex-hide-show.el
 
 
 TEST1=test/tex-hide-setup-ert-tests.el
-TEST2=test/tex-hide-tests.el
+TEST2=test/tex-hide-show-tests.el
 
 hier () {
     $EMACS -Q --batch \

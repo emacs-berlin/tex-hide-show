@@ -1,4 +1,4 @@
-;;; tex-hide.el --- Hide-show LaTeX markup sections  -*- lexical-binding: t; -*-
+;;; tex-hide-show.el --- Hide-show LaTeX markup sections  -*- lexical-binding: t; -*-
 
 ;; Author: Emacs User Group Berlin <emacs-berlin@emacs-berlin.org>
 ;; Maintainer: Emacs User Group Berlin <emacs-berlin@emacs-berlin.org>
@@ -182,11 +182,11 @@ With optional \\[universal-argument] also subsections are affected"
 
 (defvar tex-hide nil)
 
-(define-derived-mode tex-hide-mode hs-minor-mode nil
+(define-derived-mode tex-hide-show-mode hs-minor-mode nil
   "Build on top of hs-minor-mode
-\\{tex-hide-mode-map}"
-  (define-key tex-hide-mode-map (kbd "<tab>") 'eb-tex-hide-show-section)
+\\{tex-hide-show-mode-map}"
+  (define-key tex-hide-show-mode-map (kbd "<tab>") 'eb-tex-hide-show-section)
   (defalias 'eb-show-all 'hs-show-all))
 
-(provide 'tex-hide)
-;;; tex-hide.el ends here
+(provide 'tex-hide-show)
+;;; tex-hide-show.el ends here

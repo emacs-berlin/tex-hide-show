@@ -48,23 +48,11 @@ hier () {
 
 entfernt () {
     $EMACS -Q --batch \
---eval "(message (emacs-version))" \
 -load $FILE1 \
 -load $TEST1 \
 -load $TEST2 \
--load $TEST3 \
--load $TEST4 \
--load $TEST5 \
--load $TEST7 \
--load $TEST8 \
--load $TEST9 \
--load $TEST10 \
--load $TEST11 \
--load $TEST12 \
--load $TEST13 \
 -f ert-run-tests-batch-and-exit
 }
-
 
 if [ $ORT -eq 0 ]; then
     hier

@@ -2,6 +2,8 @@
 
 Hide LaTeX section, subsection etc. in a way Emacs org-mode does WRT title and subtitle.
 
+M-x tex-hide-show-mode RET enables it in current buffer.
+
 Command ‘eb-tex-hide-show-section’ toggles visibility of a section at
 point. With optional "\C-u" also subsections are affected.
 

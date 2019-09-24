@@ -6,6 +6,28 @@
 
 # Backup files
 *~
+test/#*#
+\#.*\#
+.#*#
+\#tex-hide.el\#
+.#tex-hide.el#
+
+# Compiled
+*.elc
+
+# Packaging
+.cask
+
+# Backup files
+*~
+test/#*#
+#.*#
+\.#*#
 
 # Undo-tree save-files
 *.~undo-tree
+
+# Undo-tree save-files
+*.~undo-tree
+
+RCS/

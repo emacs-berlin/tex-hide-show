@@ -5,7 +5,7 @@
 
 ;; Version: 0.1
 
-;; URL: https://github.com/emacs-berlin/tex-hide
+;; URL: https://github.com/emacs-berlin/tex-hide-show
 
 ;; Package-Requires: ((emacs "24") (cl-lib "0.5"))
 ;; Keywords: languages, convenience
@@ -24,7 +24,16 @@
 ;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary: Hide resp. show hidden LaTeX section, subsection etc.
-;;; as org-mode does WRT title and subtitle.
+;; as org-mode does WRT title and subtitle.
+
+;; M-x tex-hide-show-mode RET activates the minor-mode. Command
+;; ‘eb-tex-hide-show-section’ toggles visibility of a section at
+;; point. With optional "\C-u" also subsections are affected.
+
+;; When ‘eb-tex-hide-cycle-p’ is customized to ‘t’, cycles levels
+;; resp. unhides as org-mode's cycling does.
+
+;; ‘eb-tex-hide-cycle-p’ defaults to nil.
 
 (require 'hideshow)
 

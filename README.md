@@ -13,3 +13,6 @@ When ‘eb-tex-hide-cycle-p’ is customized to ‘t’, cycles levels resp.
 unhides as org-mode's cycling does.
 
 ‘eb-tex-hide-cycle-p’ defaults to nil.
+
+Bug-reports are welcome at:
+https://github.com/emacs-berlin/tex-hide-show/issues

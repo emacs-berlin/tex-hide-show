@@ -108,14 +108,16 @@ Arg FORM: a regular expression like ‘eb-tex-hide-rx-all-section-start’"
        (looking-at (concat (regexp-quote (char-to-string 92)) start-re))
        (point)))
 
-(defun eb-tex-hide-base (form arg start-re &optional stop-re)
+(defun eb-tex-hide-base (&optional form arg start-re stop-re beg end)
   "Hide visibility of existing form at point."
   (hs-minor-mode 1)
   (save-excursion
     (let* ((form (prin1-to-string form))
-           (beg (or (eb-tex-hide--beginning-of start-re)
+           (beg (or beg
+		    (eb-tex-hide--beginning-of start-re)
 		    (eb-tex-hide-backward-base form start-re)))
-	   (end (eb-tex-hide-forward-base start-re arg stop-re))
+	   (end (or end
+		    (eb-tex-hide-forward-base start-re arg stop-re)))
 	   (modified (buffer-modified-p))
 	   (inhibit-read-only t))
       (if (and beg end)
@@ -124,13 +126,13 @@ Arg FORM: a regular expression like ‘eb-tex-hide-rx-all-section-start’"
 	    (set-buffer-modified-p modified))
 	(error (concat "No " (format "%s" form) " at point"))))))
 
-(defun eb-tex-hide-show-intern (arg form start-re stop-re)
+(defun eb-tex-hide-show-intern (arg form &optional start-re stop-re beg end)
   "Make LaTeX section at point invisible.
 
 With \\[universal-argument] hide all subsections"
   (cond ((not (or (overlays-at (point)) (overlays-at (1- (point)))))
 	 (setq eb-hide-show--cycle-now nil)
-	 (eb-tex-hide-base form arg start-re stop-re))
+	 (eb-tex-hide-base form arg start-re stop-re beg end))
 	((and eb-tex-hide-cycle-p (not eb-hide-show--cycle-now) (or (overlays-at (point)) (overlays-at (1- (point))))
 	      (member last-command eb-tex-hide-cycling-commands))
 	 (setq eb-hide-show--cycle-now (not eb-hide-show--cycle-now))
@@ -164,23 +166,9 @@ With \\[universal-argument] hide all subsections"
 	(hs-discard-overlays (point) end)
 	(goto-char end)))))
 
-;; (defun eb-tex-hide-region (beg end)
-;;   "Hide active region."
-;;   (interactive
-;;    (list
-;;     (and (use-region-p) (region-beginning))(and (use-region-p) (region-end))))
-;;   (eb-tex-hide-base 'region beg end))
-
-;; (defun eb-tex-show-region (beg end)
-;;   "Un-hide active region."
-;;   (interactive
-;;    (list
-;;     (and (use-region-p) (region-beginning))(and (use-region-p) (region-end))))
-;;   (eb-tex-show-base 'region beg end))
-
-;; (defun eb-tex-show-region (beg end)
-;;   (interactive "r")
-;;   (eb-tex-show 'region beg end))
+(defun eb-tex-hide-show-region (beg end)
+  (interactive "r")
+  (eb-tex-hide-show-intern nil 'region nil nil beg end))
 
 (defun eb-tex-hide-show-section (&optional arg)
   "Hide resp. unhide LaTeX section at point.

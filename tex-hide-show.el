@@ -167,6 +167,7 @@ With \\[universal-argument] hide all subsections"
 	(goto-char end)))))
 
 (defun eb-tex-hide-show-region (beg end)
+"Toggles visibility of an active region at point."
   (interactive "r")
   (eb-tex-hide-show-intern nil 'region nil nil beg end))
 

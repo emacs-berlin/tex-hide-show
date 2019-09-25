@@ -1,4 +1,4 @@
-;;; tex-hide-tests.el ---  Tests
+;;; tex-hide-show-tests.el ---  Tests
 
 ;; Authored and maintained by
 ;; Emacs User Group Berlin <emacs-berlin@emacs-berlin.org>
@@ -291,5 +291,5 @@ Lorem ipsum dolor sit amet consectetuer adipiscing elit
     (should-not (overlays-at (point)))
     ))
 
-(provide 'tex-hide-tests)
-;;; tex-hide-tests.el ends here
+(provide 'tex-hide-show-tests)
+;;; tex-hide-show-tests.el ends here

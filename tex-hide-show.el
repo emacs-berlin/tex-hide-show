@@ -180,11 +180,17 @@ With optional \\[universal-argument] also subsections are affected"
 
 (defvar tex-hide nil)
 
-(define-derived-mode tex-hide-show-mode hs-minor-mode nil
-  "Build on top of hs-minor-mode
-\\{tex-hide-show-mode-map}"
-  (define-key tex-hide-show-mode-map (kbd "<tab>") 'eb-tex-hide-show-section)
-  (defalias 'eb-show-all 'hs-show-all))
+
+(defvar tex-hide-show-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "<tab>") 'eb-tex-hide-show-section)
+    map))
+
+;; (define-derived-mode tex-hide-show-mode hs-minor-mode nil
+(define-minor-mode tex-hide-show-mode
+    "Build on top of hs-minor-mode" nil nil tex-hide-show-mode-map)
+
+(defalias 'eb-show-all 'hs-show-all)
 
 (provide 'tex-hide-show)
 ;;; tex-hide-show.el ends here
